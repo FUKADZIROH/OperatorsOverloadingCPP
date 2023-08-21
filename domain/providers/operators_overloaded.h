@@ -70,3 +70,13 @@ istream& operator>> (istream& input, Point &point){
 	cout << "Enter y: "; input >> point.y;
 	return input;
 }
+
+bool operator&& (const Point& point1,const Point point2) {
+	return point1 && point2;
+}
+bool operator|| (const Point& point1, const Point point2) {
+	return point1 || point2;
+}
+bool operator! (const Point& point) {
+	return !point;
+}
