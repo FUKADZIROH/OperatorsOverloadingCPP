@@ -49,4 +49,53 @@ public:
 
 	friend ostream& operator<< (ostream& output, const Point& point);
 	friend istream& operator>> (istream& input, Point &point);
+
+	friend bool operator&& (const Point& point1, const Point point2);
+	friend bool operator|| (const Point& point1, const Point point2);
+	friend bool operator! (const Point& point);
+
+	void operator= (Point point) {
+		x = point.x;
+		y = point.y;
+	}
+	void operator+= (Point point) {
+		x += point.x;
+		y += point.y;
+	}
+	void operator-= (Point point) {
+		x -= point.x;
+		y -= point.y;
+	}
+	void operator*= (Point point) {
+		x *= point.x;
+		y *= point.y;
+	}
+	void operator/= (Point point) {
+		if (point.x == 0 || point.y == 0)
+		{
+			throw "Division by zero";
+		}
+		x /= point.x;
+		y /= point.y;
+	}
+	void operator%= (Point point) {
+		x %= point.x;
+		y %= point.y;
+	}
+	Point operator()(Point point1,Point point2) {
+		Point point;
+		point.x = point1.x * 10;
+		point.y = point2.y / 2;
+		return point;
+	}
+	void* operator new(size_t size)
+	{
+		void* p = ::operator new(size);
+
+		return p;
+	}
+	void operator delete(void* p)
+	{
+		free(p);
+	}
 };
